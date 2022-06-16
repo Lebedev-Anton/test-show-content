@@ -1,0 +1,5 @@
+url	needed_amount_of_shows	category1	category2	category3	category4	category5	category6	category7	category8	category9	category10
+http://localhost:8000/static/image1.jpg	497	flight	airlplane								
+http://localhost:8000/static/image2.jpg	3285	show	britain	bennyhill	sketches	tv					
+http://localhost:8000/static/image3.jpg	1498	games	minecraft	blocks	sandbox						
+http://localhost:8000/static/image4.jpg	104	onlycategory									
