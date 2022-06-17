@@ -31,6 +31,8 @@ class ChoosePhotoCSV:
 
                 # Проверка на совпадение категорий
                 if self.check_matching_categories(image_categories):
+                    # Механизм, который уменьшает вероятность выдачи одной
+                    # и той же картинки несколько раз подряд
                     if self.check_last_url(url):
                         allowed_urls.append(
                             {'url': url,
@@ -83,6 +85,12 @@ class ChoosePhotoCSV:
         allowed_urls = self.get_allowed_urls()
         next_url = ''
         max_count = 0
+        # Механизм, позволяющий минимизировать вероятность возникновения
+        # случаев, когда подходящие картинки уже исчерпали свой лимит и
+        # ответить на запрос нечем.
+        # Вызывается картинка с максимальным needed_amount_of_shows
+        # Учет повтора картинки будет происходить если needed_amount_of_shows
+        # совпадет у новой и старой картинки
         for url in allowed_urls:
             needed_amount_of_shows = int(url['needed_amount_of_shows'])
             if int(url['needed_amount_of_shows']) > max_count:
